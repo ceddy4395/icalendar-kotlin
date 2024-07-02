@@ -1,6 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-group = "com.vituary"
+group = "dev.willekens"
 version = "0.1.0"
 
 plugins {
@@ -16,9 +16,6 @@ kotlin {
 repositories {
     mavenLocal()
     mavenCentral()
-    maven {
-        url = uri("https://maven.pkg.github.com/ceddy4395/icalendar-kotlin")
-    }
 }
 
 
