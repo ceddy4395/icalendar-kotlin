@@ -16,6 +16,9 @@ kotlin {
 repositories {
     mavenLocal()
     mavenCentral()
+    maven {
+        url = uri("https://maven.pkg.github.com/ceddy4395/icalendar-kotlin")
+    }
 }
 
 
@@ -41,6 +44,11 @@ publishing {
             credentials {
                 username = System.getenv("GITHUB_ACTOR")
                 password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+        publications {
+            register<MavenPublication>("gpr") {
+                from(components["java"])
             }
         }
     }
