@@ -1,5 +1,7 @@
 package com.vituary.icalendar
 
+import dev.willekens.icalendar.Event
+import dev.willekens.icalendar.readCalendars
 import org.junit.Test
 import java.io.InputStream
 import java.lang.IllegalArgumentException

@@ -1,4 +1,4 @@
-package com.vituary.icalendar
+package dev.willekens.icalendar
 
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -7,22 +7,11 @@ import java.time.temporal.ChronoField
 import java.time.temporal.Temporal
 
 private val FLEX_DATE_TIME_TYPE_PARAM = ContentLineToken("VALUE")
-enum class FlexDateTimeType (val text: String) {
-    DATE("DATE"), DATETIME("DATE-TIME");
 
-    override fun toString(): String {
-        return text
-    }
-
-    companion object {
-        fun findByText(text: String) : FlexDateTimeType {
-            return values().find { it.text == text } ?: DATETIME
-        }
-    }
-}
-
-class FlexDateTimeProperty(name: ContentLineToken, value: String, params: Map<ContentLineToken, String> = emptyMap(),
-                           context: CalendarContext = CalendarContext(), localTimeZone: ZoneId = ZoneId.systemDefault()) :
+internal class FlexDateTimeProperty(name: ContentLineToken, value: String,
+                                    params: Map<ContentLineToken, String> = emptyMap(),
+                                    context: CalendarContext = CalendarContext(),
+                                    localTimeZone: ZoneId = ZoneId.systemDefault()) :
         CalendarProperty(name, value, params, context, localTimeZone) {
     val type = FlexDateTimeType.findByText(params[FLEX_DATE_TIME_TYPE_PARAM] ?: "")
     val temporalValue: Temporal

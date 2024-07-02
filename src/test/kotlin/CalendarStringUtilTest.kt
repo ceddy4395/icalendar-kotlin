@@ -1,6 +1,4 @@
-package com.vituary.icalendar
-
-import java.lang.IllegalArgumentException
+import dev.willekens.icalendar.splitCalendarValueToMap
 import java.lang.IllegalStateException
 import kotlin.test.Test
 import kotlin.test.assertEquals

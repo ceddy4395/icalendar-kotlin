@@ -1,11 +1,13 @@
-package com.vituary.icalendar
-
+import dev.willekens.icalendar.CalendarComponent
+import dev.willekens.icalendar.CalendarContext
+import dev.willekens.icalendar.CalendarProperty
+import dev.willekens.icalendar.CalendarTimeZone
+import dev.willekens.icalendar.ContentLineToken
+import dev.willekens.icalendar.FlexDateTimeProperty
+import dev.willekens.icalendar.TZID
 import java.time.*
 import java.time.Month.*
 import java.time.format.DateTimeParseException
-import java.time.temporal.TemporalAdjuster
-import java.time.temporal.TemporalAdjusters
-import java.time.temporal.WeekFields
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith

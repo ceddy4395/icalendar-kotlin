@@ -1,4 +1,4 @@
-package com.vituary.icalendar
+package dev.willekens.icalendar
 
 class CalendarContext {
     var timeZones = ArrayList<CalendarTimeZone>();

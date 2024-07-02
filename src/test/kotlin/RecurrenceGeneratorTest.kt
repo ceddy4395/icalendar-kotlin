@@ -1,5 +1,5 @@
-package com.vituary.icalendar
-
+import dev.willekens.icalendar.RecurrenceGenerator
+import dev.willekens.icalendar.RecurrenceRuleProperty
 import java.time.*
 import java.time.temporal.TemporalAdjusters
 import kotlin.test.assertEquals

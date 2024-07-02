@@ -1,4 +1,4 @@
-package com.vituary.icalendar
+package dev.willekens.icalendar
 
 import java.time.*
 import java.time.Month
@@ -6,7 +6,8 @@ import java.time.temporal.*
 import java.time.temporal.ChronoField.*
 import java.util.*
 
-class RecurrenceGenerator(private val rules: RecurrenceRuleProperty, private val startDate: Temporal) {
+internal class RecurrenceGenerator(private val rules: RecurrenceRuleProperty, private val
+startDate: Temporal) {
     private val weekFields = WeekFields.of(rules.weekStart.dayOfWeek, 4)
 
     /**

@@ -1,16 +1,23 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 group = "dev.willekens"
-version = "0.1.0"
+version = "0.1.3"
+
+val detektVersion = "1.23.3"
 
 plugins {
     kotlin("jvm") version "1.8.20"
-//    id("org.jetbrains.kotlin.jvm") version "1.8.22"
     id("maven-publish")
+    id("io.gitlab.arturbosch.detekt") version "1.23.3"
+    `java-library`
 }
 
 kotlin {
     jvmToolchain(17)
+}
+
+java {
+    withSourcesJar()
 }
 
 repositories {
@@ -24,6 +31,10 @@ tasks.withType<KotlinCompile> {
         freeCompilerArgs = listOf("-Xjsr305=strict")
         jvmTarget = "17"
     }
+}
+
+dependencies {
+    detekt("io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion")
 }
 
 dependencies {
@@ -50,3 +61,5 @@ publishing {
         }
     }
 }
+
+

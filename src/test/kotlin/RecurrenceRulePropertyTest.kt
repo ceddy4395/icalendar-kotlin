@@ -1,8 +1,9 @@
-package com.vituary.icalendar
-
+import dev.willekens.icalendar.DurationProperty
+import dev.willekens.icalendar.RecurrenceFrequency
+import dev.willekens.icalendar.RecurrenceRuleProperty
+import dev.willekens.icalendar.UTC_TZ
 import java.time.*
 import java.time.format.DateTimeParseException
-import java.util.*
 import kotlin.test.*
 
 class RecurrenceRulePropertyTest {

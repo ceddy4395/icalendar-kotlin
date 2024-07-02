@@ -1,4 +1,4 @@
-package com.vituary.icalendar
+package dev.willekens.icalendar
 
 import java.time.LocalDate
 import java.time.ZoneId

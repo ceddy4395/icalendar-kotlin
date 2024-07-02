@@ -27,6 +27,6 @@ jobs:
         uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
 
       - name: Publish package
-        run: ./gradlew publish
+        run: ./gradlew publish -x detekt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

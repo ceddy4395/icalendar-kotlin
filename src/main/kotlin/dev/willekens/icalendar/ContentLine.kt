@@ -1,8 +1,6 @@
-package com.vituary.icalendar
+package dev.willekens.icalendar
 
-import java.lang.IllegalArgumentException
-
-val IANA_TOKEN_FORMAT = "[A-Za-z\\d-]+"
+private const val IANA_TOKEN_FORMAT = "[A-Za-z\\d-]+"
 val IANA_TOKEN_REGEX = Regex("^$IANA_TOKEN_FORMAT$")
 
 /**
@@ -13,10 +11,11 @@ val IANA_TOKEN_REGEX = Regex("^$IANA_TOKEN_FORMAT$")
  *   - value: (?:(?:[^;:,\"]*|(?:\".*\")),?)* - may have multiple comma separate values with each one being either quoted \".*\" or non-quoted [^;:,\"]
  * - value: .*$
  */
-val LINE_REGEX = "^($IANA_TOKEN_FORMAT)(?:;((?:$IANA_TOKEN_FORMAT=(?:(?:[^;:,\\\"]*|(?:\\\".*\\\")),?)*;?)*))?:(.*)\$".toRegex()
+private val LINE_REGEX ="^($IANA_TOKEN_FORMAT)(?:;((?:$IANA_TOKEN_FORMAT=(?:(?:[^;:,\\\"]*|(?:\\\".*\\\")),?)*;?)*))?:(.*)\$".toRegex()
 
 // TODO exclude lineNumber from equals/hashcode
-data class ContentLine (val name: ContentLineToken, val value: String, val params: Map<ContentLineToken, String>, val lineNumber: Int)
+data class ContentLine (val name: ContentLineToken, val value: String, val params:
+                                Map<ContentLineToken, String>, val lineNumber: Int)
 
 fun ContentLine(text: String, lineNumber: Int = 0) : ContentLine {
     val matches = LINE_REGEX.matchEntire(text)
@@ -29,11 +28,3 @@ fun ContentLine(text: String, lineNumber: Int = 0) : ContentLine {
     return ContentLine(name, value, params, lineNumber)
 }
 
-data class ContentLineToken (val value: String) {
-    init {
-        require(value.matches(IANA_TOKEN_REGEX)) { "Invalid token: \"$value\"" }
-    }
-    override fun toString() = value.toUpperCase()
-    override fun equals(other: Any?) = (other is ContentLineToken) && value.equals(other.value, true)
-    override fun hashCode(): Int = value.toUpperCase().hashCode()
-}

@@ -1,4 +1,4 @@
-package com.vituary.icalendar
+package dev.willekens.icalendar
 
 import java.io.Reader
 import java.lang.IllegalArgumentException
