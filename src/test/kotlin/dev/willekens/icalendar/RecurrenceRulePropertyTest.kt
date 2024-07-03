@@ -1,7 +1,5 @@
-import dev.willekens.icalendar.DurationProperty
-import dev.willekens.icalendar.RecurrenceFrequency
-import dev.willekens.icalendar.RecurrenceRuleProperty
-import dev.willekens.icalendar.UTC_TZ
+package dev.willekens.icalendar
+
 import java.time.*
 import java.time.format.DateTimeParseException
 import kotlin.test.*

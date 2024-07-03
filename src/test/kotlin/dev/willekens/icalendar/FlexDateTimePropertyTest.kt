@@ -1,8 +1,5 @@
-package com.vituary.icalendar
+package dev.willekens.icalendar
 
-import dev.willekens.icalendar.ContentLineToken
-import dev.willekens.icalendar.DTSTART
-import dev.willekens.icalendar.FlexDateTimeProperty
 import java.lang.IllegalStateException
 import java.time.LocalDate
 import java.time.Month.*

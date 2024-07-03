@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 group = "dev.willekens"
-version = "0.1.3"
+version = "0.1.4"
 
 val detektVersion = "1.23.3"
 

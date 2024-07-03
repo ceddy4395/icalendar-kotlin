@@ -1,10 +1,5 @@
-import dev.willekens.icalendar.CalendarComponent
-import dev.willekens.icalendar.CalendarContext
-import dev.willekens.icalendar.CalendarProperty
-import dev.willekens.icalendar.CalendarTimeZone
-import dev.willekens.icalendar.ContentLineToken
-import dev.willekens.icalendar.FlexDateTimeProperty
-import dev.willekens.icalendar.TZID
+package dev.willekens.icalendar
+
 import java.time.*
 import java.time.Month.*
 import java.time.format.DateTimeParseException

@@ -5,29 +5,38 @@ import java.lang.IllegalArgumentException
 import java.util.*
 import kotlin.collections.ArrayList
 
+/**
+ * Parses and reads the calendar in ICS format.
+ * @return A list of calendars parsed from the file.
+ */
 fun Reader.readCalendars() : List<Calendar> {
     return this.readLines().readCalendars()
 }
 
+/**
+ * Parse and read calendar
+ * @return A list of calendars parsed from the strings.
+ */
 fun List<String>.readCalendars() : List<Calendar> {
     return parseContentLines(this).buildCalendars()
 }
 
 private fun parseContentLines(inputLines : List<String>) : List<ContentLine> {
     // Merge content that's broken up into multiple lines, see https://icalendar.org/iCalendar-RFC-5545/3-1-content-lines.html
-    val unfoldedLines = inputLines.foldIndexed(ArrayList<Pair<String, Int>>(), { index, unfolded, line ->
+    val unfoldedLines = inputLines.foldIndexed(ArrayList<Pair<String, Int>>()) { index, unfolded, line ->
         if (line.isNotEmpty()) {
             if (line[0].isWhitespace()) {
                 val lastPair = unfolded[unfolded.size - 1]
-                unfolded[unfolded.size - 1] = Pair(lastPair.first + line.substring(1), lastPair.second)
+                unfolded[unfolded.size - 1] =
+                    Pair(lastPair.first + line.substring(1), lastPair.second)
             } else {
                 unfolded.add(Pair(line, index + 1))
             }
         }
         unfolded
-    })
+    }
 
-    return unfoldedLines.map { ContentLine(it.first, it.second) }
+    return unfoldedLines.map { ContentLine.parse(it.first, it.second) }
 }
 
 fun List<ContentLine>.buildCalendars() : List<Calendar> {

@@ -1,7 +1,5 @@
-import dev.willekens.icalendar.ContentLineToken
-import dev.willekens.icalendar.CalendarComponentBuilder
-import dev.willekens.icalendar.CalendarContext
-import dev.willekens.icalendar.CalendarProperty
+package dev.willekens.icalendar
+
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

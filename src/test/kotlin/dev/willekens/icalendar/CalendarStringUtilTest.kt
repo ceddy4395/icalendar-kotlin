@@ -1,4 +1,5 @@
-import dev.willekens.icalendar.splitCalendarValueToMap
+package dev.willekens.icalendar
+
 import java.lang.IllegalStateException
 import kotlin.test.Test
 import kotlin.test.assertEquals
